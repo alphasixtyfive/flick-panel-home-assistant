@@ -1,0 +1,107 @@
+{
+  "title": "Flick Panel",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Choose a Flick Panel tablet",
+        "data": {"panel": "Tablet"}
+      }
+    },
+    "abort": {
+      "already_configured": "This tablet already has Flick Panel controls.",
+      "no_linked_panels": "No tablets are ready to add. Open Panel → Home Assistant → Tablet link in Flick Panel and link the tablet first."
+    },
+    "error": {"panel_unavailable": "That tablet is no longer available."}
+  },
+  "entity": {
+    "switch": {
+      "display": {"name": "Display"}
+    }
+  },
+  "selector": {
+    "page": {
+      "options": {
+        "favourites": "Favourites",
+        "rooms": "Rooms",
+        "cameras": "Cameras"
+      }
+    }
+  },
+  "services": {
+    "wake_display": {
+      "name": "Wake display",
+      "description": "Bring Flick Panel back to Favourites from its blank screen or clock.",
+      "fields": {
+        "device_id": {"name": "Tablet", "description": "The Flick Panel tablet."}
+      }
+    },
+    "blank_display": {
+      "name": "Blank display",
+      "description": "Blank Flick Panel and dim it to the lowest brightness while it is open.",
+      "fields": {
+        "device_id": {"name": "Tablet", "description": "The Flick Panel tablet."}
+      }
+    },
+    "start_screensaver": {
+      "name": "Start screensaver",
+      "description": "Show the clock and configured photos on the tablet.",
+      "fields": {
+        "device_id": {"name": "Tablet", "description": "The Flick Panel tablet."}
+      }
+    },
+    "stop_screensaver": {
+      "name": "Stop screensaver",
+      "description": "Return to Favourites from the clock or blank display.",
+      "fields": {
+        "device_id": {"name": "Tablet", "description": "The Flick Panel tablet."}
+      }
+    },
+    "open_camera": {
+      "name": "Open camera",
+      "description": "Open a camera saved in Flick Panel.",
+      "fields": {
+        "device_id": {"name": "Tablet", "description": "The Flick Panel tablet."},
+        "camera_entity_id": {"name": "Camera", "description": "A camera saved on this tablet."}
+      }
+    },
+    "close_viewer": {
+      "name": "Close viewer",
+      "description": "Close the current full-screen view and return to the dashboard.",
+      "fields": {
+        "device_id": {"name": "Tablet", "description": "The Flick Panel tablet."}
+      }
+    },
+    "open_tile": {
+      "name": "Open tile",
+      "description": "Open the full-screen view for a tile saved in Favourites.",
+      "fields": {
+        "device_id": {"name": "Tablet", "description": "The Flick Panel tablet."},
+        "entity_id": {"name": "Entity", "description": "The Home Assistant entity used by the tile."}
+      }
+    },
+    "show_page": {
+      "name": "Show dashboard tab",
+      "description": "Wake the tablet and open a dashboard tab.",
+      "fields": {
+        "device_id": {"name": "Tablet", "description": "The Flick Panel tablet."},
+        "page": {"name": "Tab", "description": "The dashboard tab to open."}
+      }
+    },
+    "launch_app": {
+      "name": "Launch app",
+      "description": "Open an Android app saved as a shortcut on the visible Flick Panel dashboard.",
+      "fields": {
+        "device_id": {"name": "Tablet", "description": "The Flick Panel tablet."},
+        "package_name": {"name": "Package name", "description": "The Android package of an app saved in Favourites."}
+      }
+    },
+    "set_brightness": {
+      "name": "Set display brightness",
+      "description": "Set a temporary brightness override or return to automatic brightness.",
+      "fields": {
+        "device_id": {"name": "Tablet", "description": "The Flick Panel tablet."},
+        "brightness": {"name": "Brightness", "description": "Leave blank to restore Android-managed brightness."}
+      }
+    }
+  }
+}

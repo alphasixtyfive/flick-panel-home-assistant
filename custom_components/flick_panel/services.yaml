@@ -1,0 +1,63 @@
+wake_display:
+  fields: &tablet_fields
+    device_id: &tablet
+      required: true
+      selector:
+        device:
+          entity:
+            integration: flick_panel
+            domain: switch
+blank_display:
+  fields: *tablet_fields
+start_screensaver:
+  fields: *tablet_fields
+stop_screensaver:
+  fields: *tablet_fields
+close_viewer:
+  fields: *tablet_fields
+open_camera:
+  fields:
+    device_id: *tablet
+    camera_entity_id:
+      required: true
+      selector:
+        entity:
+          filter:
+            domain: camera
+open_tile:
+  fields:
+    device_id: *tablet
+    entity_id:
+      required: true
+      selector:
+        entity: {}
+show_page:
+  fields:
+    device_id: *tablet
+    page:
+      required: true
+      selector:
+        select:
+          translation_key: page
+          options:
+            - favourites
+            - rooms
+            - cameras
+launch_app:
+  fields:
+    device_id: *tablet
+    package_name:
+      required: true
+      example: org.jellyfin.mobile
+      selector:
+        text: {}
+set_brightness:
+  fields:
+    device_id: *tablet
+    brightness:
+      selector:
+        number:
+          min: 1
+          max: 100
+          step: 1
+          unit_of_measurement: "%"

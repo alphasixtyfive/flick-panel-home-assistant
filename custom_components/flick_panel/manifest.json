@@ -1,0 +1,17 @@
+{
+  "domain": "flick_panel",
+  "name": "Flick Panel",
+  "codeowners": [
+    "@alphasixtyfive"
+  ],
+  "config_flow": true,
+  "dependencies": [
+    "mobile_app"
+  ],
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "requirements": [],
+  "version": "0.1.6",
+  "documentation": "https://github.com/alphasixtyfive/flick-panel-home-assistant",
+  "issue_tracker": "https://github.com/alphasixtyfive/flick-panel-home-assistant/issues"
+}
