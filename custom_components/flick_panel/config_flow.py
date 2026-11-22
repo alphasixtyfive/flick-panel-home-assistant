@@ -39,9 +39,7 @@ class FlickPanelConfigFlow(ConfigFlow, domain=DOMAIN):
                 await self.async_set_unique_id(device_id)
                 self._abort_if_unique_id_configured()
                 return self.async_create_entry(
-                    title=panel.device.name_by_user
-                    or panel.device.name
-                    or "Flick Panel",
+                    title=panel.name,
                     data={
                         CONF_PANEL: device_id,
                         CONF_REGISTRATION_ID: panel.registration_id,
@@ -49,15 +47,7 @@ class FlickPanelConfigFlow(ConfigFlow, domain=DOMAIN):
                 )
             errors["base"] = "panel_unavailable"
 
-        options = [
-            {
-                "value": key,
-                "label": panel.device.name_by_user
-                or panel.device.name
-                or "Flick Panel",
-            }
-            for key, panel in available.items()
-        ]
+        options = [{"value": key, "label": panel.name} for key, panel in available.items()]
         return self.async_show_form(
             step_id="user",
             data_schema=vol.Schema(

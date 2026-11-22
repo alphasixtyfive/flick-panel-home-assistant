@@ -100,7 +100,7 @@
       "description": "Set a temporary brightness override or return to automatic brightness.",
       "fields": {
         "device_id": {"name": "Tablet", "description": "The Flick Panel tablet."},
-        "brightness": {"name": "Brightness", "description": "Leave blank to restore Android-managed brightness."}
+        "brightness": {"name": "Brightness", "description": "Leave blank to restore the tablet’s saved dashboard brightness."}
       }
     }
   }

@@ -28,13 +28,19 @@ DISPLAY_COMMANDS = {
 
 
 def _target_panel(hass: HomeAssistant, device_id: str) -> Panel:
+    previous_device = None
     for entry in hass.config_entries.async_entries(DOMAIN):
-        if entry.state is ConfigEntryState.LOADED and device_id in (
-            entry.runtime_data.device.id,
-            entry.data[CONF_PANEL],
-            entry.data.get(CONF_LEGACY_DEVICE_ID),
+        if entry.state is not ConfigEntryState.LOADED:
+            continue
+        panel = entry.runtime_data
+        if device_id == panel.device.id:
+            return panel
+        if previous_device is None and device_id in (
+            entry.data[CONF_PANEL], entry.data.get(CONF_LEGACY_DEVICE_ID)
         ):
-            return entry.runtime_data
+            previous_device = panel
+    if previous_device is not None:
+        return previous_device
     raise ServiceValidationError("Choose a tablet linked to Flick Panel")
 
 

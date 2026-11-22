@@ -54,6 +54,18 @@ Android handles physical display power and its lock screen separately.
 An automation can use **Wake display** with any presence sensor Home Assistant
 already knows about.
 
+Use **Set display brightness** to override the tablet’s dashboard brightness.
+The screensaver keeps its own brightness limit. Open the **Display mode** sensor
+to see the current brightness and any active override.
+
+For a doorbell automation, choose **Flick Panel → Open camera** in the action
+picker. Select the tablet and a camera saved in Flick Panel. Add **Close
+viewer** in a separate automation if the door contact or another event should
+return the tablet to its dashboard.
+
+See the [Flick Panel user manual](https://github.com/alphasixtyfive/flick-panel/blob/main/docs/manual.md)
+for tablet setup, camera talkback and backups.
+
 The tablet's Mobile App device can report battery level, charging state, power
 source, battery temperature, Battery Saver, display mode, Wi-Fi signal and
 ambient light. Hardware-dependent sensors appear where supported. The tablet

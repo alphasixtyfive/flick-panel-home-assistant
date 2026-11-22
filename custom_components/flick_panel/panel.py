@@ -27,6 +27,10 @@ class Panel:
     webhook_id: str
     display_entity_id: str
 
+    @property
+    def name(self) -> str:
+        return self.device.name_by_user or self.device.name or "Flick Panel"
+
     async def async_command(self, command: str, **data: Any) -> None:
         """Send a command to this tablet through its registered notify action."""
         try:
