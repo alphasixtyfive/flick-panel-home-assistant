@@ -8,10 +8,10 @@
   "dependencies": [
     "mobile_app"
   ],
+  "documentation": "https://github.com/alphasixtyfive/flick-panel-home-assistant",
   "integration_type": "device",
   "iot_class": "local_push",
+  "issue_tracker": "https://github.com/alphasixtyfive/flick-panel-home-assistant/issues",
   "requirements": [],
-  "version": "0.1.6",
-  "documentation": "https://github.com/alphasixtyfive/flick-panel-home-assistant",
-  "issue_tracker": "https://github.com/alphasixtyfive/flick-panel-home-assistant/issues"
+  "version": "0.1.6"
 }
